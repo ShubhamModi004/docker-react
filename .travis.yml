@@ -6,9 +6,10 @@ before_install:
     - docker build -t shubhammodi004/docker-react -f Dockerfile.dev .
 
 script: 
-    - docker run shubhammodi004/docker-react npm run test -- --coverage
+    - docker run -e CI=true shubhammodi004/docker-react npm run test
 
 deploy: 
+    edge: true
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "docker"
