@@ -1,0 +1,15 @@
+# Choosing the server
+FROM node:alpine
+
+# Choosing the working directory
+WORKDIR '/app'
+
+# Copy package.json to /app
+COPY package.json .
+RUN npm install
+
+# Copy everything to /app
+COPY . .
+
+# command to run the app
+CMD ["npm", "run", "start"]
