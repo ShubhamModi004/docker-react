@@ -5,11 +5,11 @@ FROM node:alpine
 WORKDIR '/app'
 
 # Copy package.json to /app
-COPY package.json .
+COPY package.json ./
 RUN npm install
 
 # Copy everything to /app
-COPY . .
+COPY ./ ./
 
 # command to run the app
 CMD ["npm", "run", "start"]
